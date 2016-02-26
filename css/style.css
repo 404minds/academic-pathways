@@ -4,6 +4,7 @@
 }
 
 body {
+	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -62,14 +63,11 @@ section {
 	font-size: 45px;
 	font-weight: 300;
 	margin: 0;
-	font-family: 'Lato', sans-serif;
-
 }
 
 .welcome-content h4 {
 	color: white;
 	font-size: 12px;
-	font-style: bold;
 	font-weight: 400;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
@@ -102,4 +100,48 @@ section {
 	padding: 100px 0;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+.section-time h3 {
+	margin: 0;
+	font-size: 30px;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.section-time h3 i {
+	animation: spin 4s linear infinite;
+}
+
+
+.time-unit {
+	font-weight: 100;
+	width:200px;
+	text-align: center;
+	display: inline-block;
+	padding: 10px;
+	font-size: 100px;
+	color: #493c4c;
+}
+.time {
+	text-align: center;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.time span {
+	font-size: 18px;
+	color: #493c4c;
+}
+
+.time-unit + .time-unit {
+	border-left: 1px solid #a8a8a8;
 }
