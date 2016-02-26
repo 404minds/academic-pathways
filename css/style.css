@@ -6,11 +6,16 @@
 body {
 	margin: 0;
 	padding: 0;
+	color: white;
 }
 
 a {
 	text-decoration: none;
 	
+}
+
+section {
+	display: block;
 }
 
 .background {
@@ -72,4 +77,16 @@ a {
 	font-size: 17x;
 	font-weight: 400;
 	font-family: 'Lato', sans-serif;
+}
+
+.slider {
+	display : block;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+.slider i {
+	color : white;
 }
