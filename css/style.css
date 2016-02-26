@@ -1,0 +1,64 @@
+
+a {
+	text-decoration: none;
+	
+}
+body {
+	margin:0;
+}
+* {
+	box-sizing: border-box;
+	
+	
+	font-style: normal;
+}
+
+
+
+.background {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: url(../images/background.jpeg);
+}
+
+.logo-section {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.full-div {
+	height: 100%;
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.logo-div {
+	width: 500px;
+	position: relative;
+	text-align: center;
+}
+.logo-div img {
+	width: 135px;
+	height: 135px;
+}
+
+.logo-div h1 {
+	color: white;
+	font-size: 45px;
+	font-weight: 300;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+
+}
+
+.logo-div p{
+	color: white;
+	font-size: 17x;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
+}
