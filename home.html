@@ -51,29 +51,33 @@
 	</body>
 	<script type="text/javascript">
 		var date = new Date(2016,2,15);
-		
+
 		function secondPassed() {
    			var cur_date = new Date();
 
    			var difference = Math.floor((date.getTime() - cur_date.getTime())/1000); // In seconds
 
    			var days = Math.floor(difference / (24 * 60 * 60));
-   			document.getElementById('days').innerHTML = days;
+   			document.getElementById('days').innerHTML = formatNumber(days);
 
    			difference = difference - (days * 24 * 60 * 60);
 
    			var hours = Math.floor(difference / (60 * 60));
-   			document.getElementById('hours').innerHTML = hours;
+   			document.getElementById('hours').innerHTML = formatNumber(hours);
 
    			difference = difference - (hours * 60 * 60);
 
    			var minutes = Math.floor(difference / 60);
-   			document.getElementById('minutes').innerHTML = minutes;
+   			document.getElementById('minutes').innerHTML = formatNumber(minutes);
 
    			difference = difference - (minutes * 60);
 
    			var seconds = Math.floor(difference);
-   			document.getElementById('seconds').innerHTML = seconds;
+   			document.getElementById('seconds').innerHTML = formatNumber(seconds);
+		}
+
+		function formatNumber(n) {
+			return (n < 10) ? "0" + n : n;
 		}
 
 		var countdownTimer = setInterval(secondPassed, 1000);
