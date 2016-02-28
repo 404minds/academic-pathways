@@ -63,6 +63,7 @@ section {
 	font-size: 45px;
 	font-weight: 300;
 	margin: 0;
+	text-transform: uppercase;
 }
 
 .welcome-content h4 {
@@ -295,4 +296,120 @@ section {
 	color: white;
 	font-size: 14px;
 	font-weight: 200;
+}
+@media only screen and (max-device-width : 768px) {
+
+.welcome-content {
+	width: 100%;
+	text-align: center;
+	padding: 0 30px;
+}
+
+.welcome-content h1 {
+	font-size: 32px;
+}
+
+.time-unit {
+	font-size: 36px;
+	width: 40%;
+}
+
+.time-unit + .time-unit {
+	border: 0;
+}
+
+.time-unit:nth-child(odd){
+	border-right: 1px solid #a8a8a8;
+}
+
+.time-unit:nth-child(n+3) {
+	margin-top: 20px;
+}
+
+#mc_embed_signup input.email {
+	width: 80%;
+
+}
+
+
+.section-time {
+	padding: 40px 0;
+}
+
+.section-time h3 {
+	margin: 0;
+	font-size: 20px;
+}
+
+.section-notification {
+	padding: 40px 0;
+}
+
+.time span {
+	font-size: 14px;
+}
+
+.section-notification {
+	text-align: center;
+	color: white;
+	padding: 100px 50px;
+}
+
+.section-notification p {
+	margin: 0;
+	font-weight: 100;
+	font-size: 14px;
+	line-height: 26px;
+}
+
+#mc_embed_signup {
+	font-size:14px;
+	width: 100%;
+	
+}
+
+#mc_embed_signup form {
+	border: 0;
+	width: 100%;
+}
+
+#mc_embed_signup input.email {
+	width: 100%;
+	border: 5px solid rgba(255, 255, 255, 0.4);
+	border-radius: 4px;
+	text-align: center;
+}
+
+#mc_embed_signup input.button {
+	width: 100%;
+	border: 5px solid rgba(255, 255, 255, 0.4);
+	border-radius: 4px;
+}
+
+.mailto {
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.mailto a {
+ 	font-size: 20px;
+
+}
+
+
+.tel {
+	width:60%;
+	margin: 0;
+	font-size: 18px;
+}
+
+.tel + .tel {
+	border-left: 0;
+}
+
+.footer-text {
+	width: 80%;
+}
+
 }
