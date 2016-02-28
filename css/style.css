@@ -145,3 +145,61 @@ section {
 .time-unit + .time-unit {
 	border-left: 1px solid #a8a8a8;
 }
+
+#mc_embed_signup {
+	padding: 0;
+	font-size:18px;
+	font-family: Helvetica,Arial,sans-serif;
+	margin-top: 20px;
+}
+
+#mc_embed_signup form {
+	display: inline-block;
+	border: 5px solid rgba(255, 255, 255, 0.4);
+	border-radius: 4px;
+	padding: 0;
+}
+
+#mc_embed_signup input.email {
+	background-color: transparent;
+	width: 600px;
+	height: 40px;
+	border: 0px;
+	padding-left: 10px;
+}
+
+#mc_embed_signup input.text {
+
+} 
+
+
+#mc_embed_signup input.button {
+	height: 40px;
+	border-left: 5px solid rgba(255, 255, 255, 0.4);
+	background-color: transparent;
+	padding: 0 25px;
+	font-size: 16px;
+	font-weight: 500;
+}
+#mc_embed_signup input.button:hover {
+	background-color: white;
+	color: black;
+} 
+
+.section-notification {
+	text-align: center;
+	color: white;
+	padding: 100px 0;
+}
+
+.section-notification p {
+	margin: 0;
+	font-weight: 100;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.section-notification i {
+	margin-bottom: 10px;
+	font-size: 30px;
+} 
