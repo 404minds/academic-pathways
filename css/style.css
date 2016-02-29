@@ -97,3 +97,40 @@ font-size: 30px;
 	font-style: italic;
 
 }
+
+.service-section {
+	padding: 100px 0;
+	background-color: #fcd307;
+	text-align: center;
+}
+
+.service-wrapper {
+	 display : inline-block
+}
+
+.service-contain {
+	display: inline-block;
+}
+
+.service-contain + .service-contain {
+	margin-left: 50px;
+}
+
+.service-image {
+	display: table-cell;
+	width: 120px;
+	height: 120px;
+
+	background-color: white;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.service-image img {
+	height: 70px;
+}
+
+.service-name {
+	margin-top: 30px;
+	font-size: 16px;
+}
