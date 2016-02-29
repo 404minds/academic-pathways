@@ -1,0 +1,99 @@
+body {
+	margin: 0;
+}
+
+
+a {
+	text-decoration: none;
+
+}
+
+
+header {
+	padding: 0 150px;
+}
+
+.head-wrapper {
+	
+}
+
+.logo {
+	display: inline-block;
+	padding-right: 150px;
+	float: left;
+}
+
+.menues {
+	padding: 10px;
+	display: inline-block;
+	float: right;
+
+	
+}
+.menu {
+	list-style: none;
+}
+
+.menu li {
+	display: inline-block;
+	padding: 0 10px;
+	
+}
+
+.menu a {
+	color: black;
+	font-size: 16px;
+}
+
+.menu a:hover {
+	color:  #fcd307;
+}
+
+.menu i {
+	font-size: 20px;
+	padding: 0 5px;
+}
+
+
+header h1{
+font-family: 'Marck Script', cursive;
+font-size: 30px;
+}
+
+
+.image-section {
+	padding-left: 150px;
+	clear: both;
+	background-image: url("https://static.wixstatic.com/media/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg/v1/fill/w_1288,h_600,al_c,q_85,usm_0.66_1.00_0.01/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+ 
+}
+
+.image-content {
+	display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.image-content h1 {
+	font-size: 45px;
+	color: white;
+	margin: 0;
+}
+
+.image-content h1 i {
+	color: #fcd307;
+}
+
+.image-content h5 {
+	font-size: 22px;
+	color: white;
+	margin: 0;
+	font-style: italic;
+
+}
