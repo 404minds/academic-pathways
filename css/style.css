@@ -207,3 +207,60 @@ font-size: 30px;
     vertical-align: baseline;
 
 }
+
+.section-contact {
+	background-color: rgb(33,33,33);
+	font-family: 'Droid Serif', serif;
+	padding: 50px 150px;
+}
+
+.section-contact h1 {
+	font-size: 45px;
+	color: #ffffff;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.section-contact h5 {
+	font-size: 16px;
+	color: #ffffff;
+	margin: 0 50px;
+	font-style: italic;
+}
+
+.contact-wrapper {
+	display: inline-block;
+	margin-top: 50px;
+}
+
+.left-wrapper {
+	display: inline-block;
+}
+
+.right-wrapper {
+	display: inline-block;
+}
+
+.contact a {
+	color: #ffffff;
+
+}
+
+
+.contact td {
+	padding : 0px 10px 15px 0px;
+}
+
+.contact td a {
+	display: block;
+	margin-bottom: 5px;
+}
+
+address {
+	color: #ffffff;
+	font-size: 14px;
+	font-style: normal;
+	margin: 20px 0;
+}
+
+
