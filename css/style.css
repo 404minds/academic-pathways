@@ -132,5 +132,52 @@ font-size: 30px;
 
 .service-name {
 	margin-top: 30px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.section-about {
+	padding: 50px 150px;
+	background-color: #ffffff;
+	
+}
+
+.section-about h1 {
+	font-size: 45px;
+	color: #000000;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.section-about h5 {
 	font-size: 16px;
+	color: #000000;
+	margin: 0 50px;
+}
+
+.team-wrapper {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.team-contain {
+	display: inline-block;
+}
+
+.team-contain + .team-contain {
+	margin-right: 20px;
+}
+
+.team-image {
+	width: 175px;
+	height: 175px;
+}
+
+.team-image img{
+	width: 100%;
+	
+}
+
+.team-name {
+
 }
