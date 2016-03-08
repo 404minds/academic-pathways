@@ -263,4 +263,71 @@ address {
 	margin: 20px 0;
 }
 
+.registration {
+	padding: 50px 150px;
+	background-color:  #ffffff;
+}
 
+.registration h2 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 100;
+	color: #000000;
+}
+
+
+#mc_embed_signup {
+	clear:left; 
+	font:14px Helvetica,Arial,sans-serif; 
+	padding: 0px 150px;
+}
+
+#mc_embed_signup form {
+	background-color: transparent;
+	padding: t0px 150px;
+	margin-top: 20px;
+	display: none;
+	text-align: center;
+}
+
+#mc_embed_signup input {
+	background-color: transparent;
+
+} 
+
+
+#mc_embed_signup .button {
+	background-color: #3ec66b;
+	border: 1px solid #3ec66b;
+	border: none;
+}
+
+#mc_embed_signup .size1of2 {
+	float: none;
+	width: 100%;
+	display: block;
+	margin-right: 0;
+}
+
+/*#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error,
+#mc_embed_signup .mc-field-group input {
+	  border: 0;
+	  color: #555555;
+	  width: 100%;
+	  background-color: transparent;
+	  border: 0;
+	  border-bottom: 1px solid #555555;
+	  font-size: 18px;
+	  fonr-weight: 100;
+	  padding: 10px 0;
+	  outline: 0;
+	  text-align: center;
+
+
+
+}*/
+
+.testimonial {
+	background-color: #fcd307;
+	height: 250px;
+}
