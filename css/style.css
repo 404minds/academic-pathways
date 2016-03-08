@@ -252,11 +252,11 @@ address {
     background-color: #ffffff;
 }
 
-.registration h2 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 100;
+.registration h1 {
+    font-size: 45px;
     color: #000000;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 #mc_embed_signup {
