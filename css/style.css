@@ -10,7 +10,10 @@ header {
     padding: 0 150px;
 }
 
-.head-wrapper {}
+.container {
+	width: 980px;
+	margin: 0 auto;
+}
 
 .logo {
     display: inline-block;
@@ -60,6 +63,10 @@ header h1 {
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
+}
+
+.image-section .container {
+	height: 100%;
 }
 
 .image-content {
