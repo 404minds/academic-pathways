@@ -1,313 +1,295 @@
 body {
-	margin: 0;
+    margin: 0;
 }
-
 
 a {
-	text-decoration: none;
-
+    text-decoration: none;
 }
-
 
 header {
-	padding: 0 150px;
+    padding: 0 150px;
 }
 
-.head-wrapper {
-	
-}
+.head-wrapper {}
 
 .logo {
-	display: inline-block;
-	padding-right: 150px;
-	float: left;
+    display: inline-block;
+    padding-right: 150px;
+    float: left;
 }
 
 .menues {
-	padding: 10px;
-	display: inline-block;
-	float: right;
-
-	
+    padding: 10px;
+    display: inline-block;
+    float: right;
 }
+
 .menu {
-	list-style: none;
+    list-style: none;
 }
 
 .menu li {
-	display: inline-block;
-	padding: 0 10px;
-	
+    display: inline-block;
+    padding: 0 10px;
 }
 
 .menu a {
-	color: black;
-	font-size: 16px;
+    color: black;
+    font-size: 16px;
 }
 
 .menu a:hover {
-	color:  #fcd307;
+    color: #fcd307;
 }
 
 .menu i {
-	font-size: 20px;
-	padding: 0 5px;
+    font-size: 20px;
+    padding: 0 5px;
 }
 
-
-header h1{
-font-family: 'Marck Script', cursive;
-font-size: 30px;
+header h1 {
+    font-family: 'Marck Script', cursive;
+    font-size: 30px;
 }
-
 
 .image-section {
-	padding-left: 150px;
-	clear: both;
-	background-image: url("https://static.wixstatic.com/media/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg/v1/fill/w_1288,h_600,al_c,q_85,usm_0.66_1.00_0.01/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg");
+    padding-left: 150px;
+    clear: both;
+    background-image: url("https://static.wixstatic.com/media/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg/v1/fill/w_1288,h_600,al_c,q_85,usm_0.66_1.00_0.01/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
     width: 100%;
- 
 }
 
 .image-content {
-	display: inline-block;
+    display: inline-block;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .image-content h1 {
-	font-size: 45px;
-	color: white;
-	margin: 0;
+    font-size: 45px;
+    color: white;
+    margin: 0;
 }
 
 .image-content h1 i {
-	color: #fcd307;
+    color: #fcd307;
 }
 
 .image-content h5 {
-	font-size: 22px;
-	color: white;
-	margin: 0;
-	font-style: italic;
-
+    font-size: 22px;
+    color: white;
+    margin: 0;
+    font-style: italic;
 }
 
 .service-section {
-	padding: 100px 0;
-	background-color: #fcd307;
-	text-align: center;
+    padding: 100px 0;
+    background-color: #fcd307;
+    text-align: center;
 }
 
 .service-wrapper {
-	 display : inline-block
+    display: inline-block
 }
 
 .service-contain {
-	display: inline-block;
+    display: inline-block;
 }
 
 .service-contain + .service-contain {
-	margin-left: 50px;
+    margin-left: 50px;
 }
 
 .service-image {
-	display: table-cell;
-	width: 120px;
-	height: 120px;
-
-	background-color: white;
-	border-radius: 50%;
-	vertical-align: middle;
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
 }
 
 .service-image img {
-	height: 70px;
+    height: 70px;
 }
 
 .service-name {
-	margin-top: 30px;
-	font-size: 14px;
-	text-transform: uppercase;
+    margin-top: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .section-about {
-	font-family: 'Droid Serif', serif;
-	padding: 50px 150px;
-	background-color: #ffffff;
-	
+    font-family: 'Droid Serif', serif;
+    padding: 50px 150px;
+    background-color: #ffffff;
 }
 
 .section-about h1 {
-	font-size: 45px;
-	color: #000000;
-	margin: 0;
-	margin-bottom: 10px;
+    font-size: 45px;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 .section-about h5 {
-	font-size: 16px;
-	color: #000000;
-	margin: 0 50px;
+    font-size: 16px;
+    color: #000000;
+    margin: 0 50px;
 }
 
 .team-wrapper {
-	text-align: center;
-	margin: 50px 0;
+    text-align: center;
+    margin: 50px 0;
 }
 
 .team-contain {
-	display: inline-block;
+    display: inline-block;
 }
 
 .team-contain + .team-contain {
-	margin-left: 20px;
+    margin-left: 20px;
 }
 
 .team-image {
-	width: 175px;
-	height: 175px;
+    width: 175px;
+    height: 175px;
 }
 
-.team-image img{
-	width: 100%;
-	
+.team-image img {
+    width: 100%;
 }
+
 .team-name {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .team-name h6 {
-	margin: 0;
-	margin-top: 5px;
-	font-size: 12px;
-	font-style: italic;
-	font-weight: 100;
-	text-transform: capitalize;
-	
+    margin: 0;
+    margin-top: 5px;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 100;
+    text-transform: capitalize;
 }
+
 .name {
-	color: #4d4a4a;
+    color: #4d4a4a;
 }
- 
+
 .post {
-	color: #858585;
+    color: #858585;
 }
 
 .about-note p {
-	font-size: 14px;
+    font-size: 14px;
     letter-spacing: 1px;
     line-height: 20px;
     text-align: justify;
     vertical-align: baseline;
-
 }
 
 .section-contact {
-	background-color: rgb(33,33,33);
-	font-family: 'Droid Serif', serif;
-	padding: 50px 150px;
+    background-color: rgb(33, 33, 33);
+    font-family: 'Droid Serif', serif;
+    padding: 50px 150px;
 }
 
 .section-contact h1 {
-	font-size: 45px;
-	color: #ffffff;
-	margin: 0;
-	margin-bottom: 10px;
+    font-size: 45px;
+    color: #ffffff;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 .section-contact h5 {
-	font-size: 16px;
-	color: #ffffff;
-	margin: 0 50px;
-	font-style: italic;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 50px;
+    font-style: italic;
 }
 
 .contact-wrapper {
-	display: inline-block;
-	margin-top: 50px;
+    display: inline-block;
+    margin-top: 50px;
 }
 
 .left-wrapper {
-	display: inline-block;
+    display: inline-block;
 }
 
 .right-wrapper {
-	display: inline-block;
+    display: inline-block;
 }
 
 .contact a {
-	color: #ffffff;
-
+    color: #ffffff;
 }
 
-
 .contact td {
-	padding : 0px 10px 15px 0px;
+    padding: 0px 10px 15px 0px;
 }
 
 .contact td a {
-	display: block;
-	margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
 }
 
 address {
-	color: #ffffff;
-	font-size: 14px;
-	font-style: normal;
-	margin: 20px 0;
+    color: #ffffff;
+    font-size: 14px;
+    font-style: normal;
+    margin: 20px 0;
 }
 
 .registration {
-	padding: 50px 150px;
-	background-color:  #ffffff;
+    padding: 50px 150px;
+    background-color: #ffffff;
 }
 
 .registration h2 {
-	margin: 0;
-	font-size: 20px;
-	font-weight: 100;
-	color: #000000;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 100;
+    color: #000000;
 }
 
-
 #mc_embed_signup {
-	clear:left; 
-	font:14px Helvetica,Arial,sans-serif; 
-	padding: 0px 150px;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    padding: 0px 150px;
 }
 
 #mc_embed_signup form {
-	background-color: transparent;
-	padding: t0px 150px;
-	margin-top: 20px;
-	display: none;
-	text-align: center;
+    background-color: transparent;
+    padding: t0px 150px;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
 }
 
 #mc_embed_signup input {
-	background-color: transparent;
-
-} 
-
+    background-color: transparent;
+}
 
 #mc_embed_signup .button {
-	background-color: #3ec66b;
-	border: 1px solid #3ec66b;
-	border: none;
+    background-color: #3ec66b;
+    border: 1px solid #3ec66b;
+    border: none;
 }
 
 #mc_embed_signup .size1of2 {
-	float: none;
-	width: 100%;
-	display: block;
-	margin-right: 0;
+    float: none;
+    width: 100%;
+    display: block;
+    margin-right: 0;
 }
+
 
 /*#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error,
 #mc_embed_signup .mc-field-group input {
@@ -328,6 +310,6 @@ address {
 }*/
 
 .testimonial {
-	background-color: #fcd307;
-	height: 250px;
+    background-color: #fcd307;
+    height: 250px;
 }
