@@ -386,6 +386,10 @@ address {
     position: relative;
 }
 
+.testimonial .container {
+    
+}
+
 .left-slide {
     position: absolute;
     left: 0;

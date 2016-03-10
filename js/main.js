@@ -4,3 +4,7 @@ $('a').click(function() {
     }, 600);
     return false;
 });
+
+
+var left = document.getElementById('left');
+var right = document.getElementById('right');
