@@ -158,6 +158,15 @@ header h1 {
     margin: 50px 0;
 }
 
+.team-wrapper table {
+    width: 100%;
+}
+
+.team-wrapper table td {
+    text-align: center;
+    padding: 10px;
+}
+
 .team-contain {
     display: inline-block;
 }
