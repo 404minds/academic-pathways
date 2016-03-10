@@ -287,14 +287,14 @@ address {
     background-color: #ffffff;
 }
 
-.registration h1 {
+.head{
     font-size: 45px;
     color: #000000;
     margin: 0;
     margin-bottom: 10px;
 }
 
-.registration h5 {
+.tagline {
     font-size: 16px;
     color: #000000;
     margin: 0 50px;
@@ -367,8 +367,30 @@ address {
 }*/
 
 .testimonial {
+    font-family: 'Droid Serif', serif;
     background-color: #fcd307;
-    height: 250px;
+    padding: 50px 0;
+}
+
+.text-wrapper {
+    padding: 50px;
+    text-align: center;
+}
+
+.text-para {
+    color: #555555;
+    font-weight: 300;
+}
+
+.written {
+    text-align: right;
+    margin-top: 50px;
+}
+
+.written p {
+    font-size: 12px;
+    line-height: 0.5;
+    color: #555555;
 }
 
 
