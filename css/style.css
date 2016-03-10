@@ -316,8 +316,10 @@ address {
 
 #mc_embed_signup form {
     background-color: transparent;
-    padding: t0px 150px;
+    padding: 10px 150px;
+    padding-bottom: 0;
     margin-top: 20px;
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -335,6 +337,7 @@ address {
     border: 1px solid #fcd307;
     border: none;
     color: #000000;
+    margin-bottom: 0;
 }
 
 #mc_embed_signup .size1of2 {
