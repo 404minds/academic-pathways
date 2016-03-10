@@ -10,6 +10,10 @@ header {
     padding: 0 150px;
 }
 
+.clear {
+	clear: both;
+}
+
 .container {
 	width: 980px;
 	margin: 0 auto;
@@ -220,30 +224,28 @@ header h1 {
     font-style: italic;
 }
 
-.contact-wrapper {
-   
+.contact-wrapper {  
     margin-top: 50px;
 }
 
-.left-wrapper {
+.contact-wrapper .left-wrapper {
     display: inline-block;
     margin-right: 50px;
 }
 
-.right-wrapper {
-    display: inline-block;
-    margin-left: 50px;
-   
+.contact-wrapper .right-wrapper {
+	display: inline-block;
+	float: right;
+	margin-left: 50px;
 }
 
-.right-wrapper h6{
+.right-wrapper h6 {
 	color: #ffffff;
 	font-size: 16px;
+	font-weight: 300;
 	margin: 0;
 	margin-bottom: 20px;
 }
-
-
 
 .contact a {
     color: #ffffff;
@@ -302,6 +304,10 @@ address {
     padding: t0px 150px;
     margin-top: 20px;
     text-align: center;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
+	margin-bottom: 0;
 }
 
 #mc_embed_signup input {
