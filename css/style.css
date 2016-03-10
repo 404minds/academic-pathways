@@ -197,8 +197,14 @@ header h1 {
     text-transform: capitalize;
 }
 
-.name {
+.name a {
     color: #4d4a4a;
+}
+
+.name a i {
+	color: #0077b5;
+	font-weight: 100;
+	padding-left: 7px;
 }
 
 .post {
