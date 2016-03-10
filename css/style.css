@@ -25,6 +25,19 @@ header {
     float: left;
 }
 
+.logo div:nth-child(1) {
+	color: #fcd307;
+	line-height: 0.7;
+}
+
+.logo span:nth-child(2) {
+	font-family: 'Droid Serif', serif;
+	font-size: 15px;
+	font-weight: lighter;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+}
+
 .menues {
     padding: 10px;
     display: inline-block;
