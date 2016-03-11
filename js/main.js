@@ -31,5 +31,11 @@ right.addEventListener("click",function() {
 },false);
 
 
+var modal = document.getElementById('modal');
+var cross = document.getElementById('cross');
+cross.addEventListener("click",function() {
+	modal.style.display = "none";
+})
+
 
 
