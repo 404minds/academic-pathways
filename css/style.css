@@ -419,7 +419,7 @@ address {
     padding: 50px 0;
     position: relative;
     height: 250px;
-    overflow: whidden;
+    overflow: hidden;
 }
 
 .testimonial .container {
