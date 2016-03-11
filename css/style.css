@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
 }
@@ -414,10 +418,15 @@ address {
     background-color: #fcd307;
     padding: 50px 0;
     position: relative;
+    height: 250px;
+    overflow: whidden;
 }
 
 .testimonial .container {
-    
+    height: 100%;
+    text-align: center;
+    position: relative;
+    white-space: nowrap;
 }
 
 .left-slide {
@@ -450,8 +459,21 @@ address {
 }
 
 .text-wrapper {
-    padding: 50px;
+    padding: 0 50px;
     text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: left .5s;
+    white-space: normal;
+    width: 100%;
+}
+
+.text-wrapper + .text-wrapper {
+    opacity: 0;
 }
 
 .text-para {
@@ -461,7 +483,8 @@ address {
 
 .written {
     text-align: right;
-    margin-top: 50px;
+    margin-top: 75px;
+
 }
 
 .written p {
@@ -469,6 +492,7 @@ address {
     line-height: 0.5;
     color: #555555;
 }
+
 
 
 
