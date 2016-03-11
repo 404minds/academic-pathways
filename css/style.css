@@ -191,7 +191,7 @@ header h1 {
 .image-section {
     
     clear: both;
-    background-image: url("https://static.wixstatic.com/media/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg/v1/fill/w_1288,h_600,al_c,q_85,usm_0.66_1.00_0.01/a38016_9bd9d7a9ccb44689ba0771fd8e44d08e.jpg");
+    background-image: url("../images/bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -525,7 +525,7 @@ address {
     width: 50px;
     background-color: rgba(33,33,33,.05);
     text-align: center;
-
+    cursor: pointer;
 }
 
 .testimonial i {
@@ -544,6 +544,7 @@ address {
     width: 50px;
     background-color: rgba(33,33,33,.05);
     text-align: center;
+    cursor: pointer;
 }
 
 .text-wrapper {
@@ -555,7 +556,7 @@ address {
     left: 0;
     bottom: 0;
     right: 0;
-    transition: left 2s;
+    transition: left 1.5s;
     white-space: normal;
     width: 100%;
 }

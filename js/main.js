@@ -13,7 +13,10 @@ var width = document.getElementById('slide').getBoundingClientRect().width;
 
 for(var i = 1, l = wrapper.length; i < l; i++) {
   wrapper[i].style.left = width * i + "px";
-  wrapper[i].style.opacity = 1;
+  wrapper[i].addEventListener("transitionend", function() {
+    this.style.opacity = 1;
+    this.removeEventListener("transitionend");
+  }, false);
 }
 
 left.addEventListener("click",function() {
