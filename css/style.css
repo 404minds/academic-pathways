@@ -265,7 +265,7 @@ header h1 {
 
 .section-about {
     font-family: 'Droid Serif', serif;
-    padding: 50px 150px;
+    padding: 50px 0;
     background-color: #ffffff;
 }
 
@@ -294,27 +294,26 @@ header h1 {
     margin: 0 50px;
 }
 
+team-container {
+    width: 100%;
+    text-align: center;
+}
+
 .team-wrapper {
     text-align: center;
-    margin: 50px 0;
+    width: 70%;
+    margin: 50px auto;
+    min-width: 320px;
 }
 
-.team-wrapper table {
-    width: 100%;
-}
-
-.team-wrapper table td {
-    text-align: center;
-    padding: 10px;
-}
 
 .team-contain {
     display: inline-block;
 }
 
-.team-contain + .team-contain {
+/*.team-contain + .team-contain {
     margin-left: 20px;
-}
+}*/
 
 .team-image {
     width: 175px;
