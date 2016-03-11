@@ -19,6 +19,12 @@ header {
 	margin: 0 auto;
 }
 
+@media (max-width: 980px) {
+	.container {
+		width: 100%;
+	}
+}
+
 .logo {
     display: inline-block;
     padding-right: 150px;
@@ -153,6 +159,18 @@ header h1 {
     background-color: #ffffff;
 }
 
+@media (max-width: 980px) {
+	.section-about {
+		padding: 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.section-about {
+		padding: 20px;
+	}
+}
+
 .section-about h1 {
     font-size: 45px;
     color: #000000;
@@ -236,6 +254,18 @@ header h1 {
     background-color: rgb(33, 33, 33);
     font-family: 'Droid Serif', serif;
     padding: 50px 150px;
+}
+
+@media (max-width: 980px) {
+	.section-contact {
+		padding: 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.section-contact {
+		padding: 20px;
+	}
 }
 
 .section-contact h1 {
