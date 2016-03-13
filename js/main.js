@@ -27,7 +27,7 @@ left.addEventListener("click",function() {
 },false);
 
 right.addEventListener("click",function() {
-	if(currentSlide == 3)
+	if(currentSlide == 4)
 		return;
 	document.getElementById('slide' + currentSlide).style.left = -1 * width + "px";
   document.getElementById('slide' + (++currentSlide)).style.left = '0';
