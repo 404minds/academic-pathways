@@ -40,20 +40,23 @@ header {
     background-color: rgba(0,0,0,0.75);
     width: 100%;
     text-align: center;
-    display: none;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
 .modal-window {
-    position: relative;
-    background:#fafaf8; 
-    top: 50%;
-    transform: translateY(-50%);
-    display: inline-block;
+    background:#fafaf8;
     min-width: 320px;
     width: 35%;
     border-radius: 6px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .cross-btn {
@@ -526,13 +529,17 @@ address {
     background-color: rgba(33,33,33,.05);
     text-align: center;
     cursor: pointer;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .testimonial i {
     font-size: 24px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     color: #ffffff;
     opacity: 0.6;
 }
@@ -545,6 +552,13 @@ address {
     background-color: rgba(33,33,33,.05);
     text-align: center;
     cursor: pointer;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .text-wrapper {
