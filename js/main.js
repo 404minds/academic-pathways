@@ -1,0 +1,44 @@
+$('a').click(function() {
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 600);
+    return false;
+});
+
+var currentSlide = 1;
+var left = document.getElementById('left');
+var right = document.getElementById('right');
+var wrapper = document.getElementsByClassName('text-wrapper');
+var width = document.getElementById('slide').getBoundingClientRect().width;
+
+for(var i = 1, l = wrapper.length; i < l; i++) {
+  wrapper[i].style.left = width * i + "px";
+  wrapper[i].addEventListener("transitionend", function() {
+    this.style.opacity = 1;
+    this.removeEventListener("transitionend");
+  }, false);
+}
+
+left.addEventListener("click",function() {
+	if(currentSlide == 1)
+		return;
+	document.getElementById('slide' + currentSlide).style.left = width + "px";
+  document.getElementById('slide' + (--currentSlide)).style.left = '0';
+},false);
+
+right.addEventListener("click",function() {
+	if(currentSlide == 4)
+		return;
+	document.getElementById('slide' + currentSlide).style.left = -1 * width + "px";
+  document.getElementById('slide' + (++currentSlide)).style.left = '0';
+},false);
+
+
+var modal = document.getElementById('modal');
+var cross = document.getElementById('cross');
+cross.addEventListener("click",function() {
+	modal.style.display = "none";
+})
+
+
+
