@@ -246,38 +246,71 @@ header h1 {
 .service-section {
     padding: 100px 0;
     background-color: #ede7db;
-    text-align: center;
 }
 
 .service-wrapper {
-    display: inline-block
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .service-contain {
-    display: inline-block;
+    width: 50%;
+    flex: 1;
 }
 
-.service-contain + .service-contain {
+/*.service-contain + .service-contain {
     margin-left: 50px;
+}*/
+
+.image-wrapper {
+    display: inline-block;
+    float: left;
 }
 
 .service-image {
     display: table-cell;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     background-color: white;
     border-radius: 50%;
     vertical-align: middle;
+    text-align: center;
 }
 
 .service-image img {
     height: 70px;
 }
 
+.one {
+    background-color: #88b840;
+}
+
+.two {
+    background-color: #f9c27f;
+}
+
+.three {
+    background-color: #77b1bf;
+}
+
+.four {
+    background-color: #aca090;
+}
 .service-name {
     margin-top: 30px;
     font-size: 14px;
-    text-transform: uppercase;
+    float: right;
+}
+
+.service-name h5 {
+    font-size: 16px;
+    color: #777777;
+}
+
+.service-name p {
+    font-size: 12px;
+    color: #7c7c7c;
 }
 
 .section-about {
