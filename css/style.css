@@ -132,13 +132,6 @@ header {
     margin-right: 0;
 }
 
-
-
-
-
-
-
-
 .logo {
     display: inline-block;
     padding-right: 150px;
@@ -193,13 +186,23 @@ header h1 {
 }
 
 .image-section {
-    
     clear: both;
-    background-image: url("../images/bg.jpg");
+    height: 600px;
+    position: relative;
+    background-color: #2d526f;
+}
+
+.image-section .bg-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url("../images/bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    opacity: 0.5;
 }
 
 .image-section .container {
@@ -220,7 +223,7 @@ header h1 {
 }
 
 .image-content h1 i {
-    color: #A6CE39;
+    color: #e34d91;
 }
 
 .image-content h5 {
