@@ -22,7 +22,7 @@ header {
 }
 
 .container {
-	width: 980px;
+	max-width: 980px;
 	margin: 0 auto;
 }
 
@@ -244,28 +244,73 @@ header h1 {
 }
 
 .service-section {
-    padding: 100px 0;
+    padding: 100px 50px;
     background-color: #ede7db;
+}
+
+@media (max-width: 480px) {
+	.service-section {
+		padding: 20px;
+	}
 }
 
 .service-wrapper {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
 }
 
 .service-contain {
-    width: 50%;
-    flex: 1;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-basis: 50%;
 }
 
-/*.service-contain + .service-contain {
-    margin-left: 50px;
-}*/
+@media (max-width: 480px) {
+	.service-contain {
+		flex-direction: column;
+	}
+}
+
+.service-contain:nth-child(n+3) {
+	margin-top: 60px;
+}
+
+.service-contain:nth-child(even) {
+	padding-left: 30px;
+}
+
+@media (max-width: 980px) {
+	.service-contain {
+		flex-basis: 100%;
+	}
+
+	.service-contain:nth-child(n+2) {
+		margin-top: 60px;
+	}
+
+	.service-contain:nth-child(even) {
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.service-contain:nth-child(n+2) {
+		margin-top: 20px;
+	}
+}
 
 .image-wrapper {
     display: inline-block;
-    float: left;
+}
+
+@media (max-width: 480px) {
+	.image-wrapper {
+		margin: 0 auto;
+	}
 }
 
 .service-image {
@@ -297,20 +342,45 @@ header h1 {
 .four {
     background-color: #aca090;
 }
+
+.five {
+	background-color: #e28e76;
+}
+
+.six {
+	background-color: #d5c04a;
+}
+
 .service-name {
-    margin-top: 30px;
+	flex: 1;
     font-size: 14px;
-    float: right;
+    padding: 20px 0;
+    padding-left: 15px;
 }
 
 .service-name h5 {
+	margin: 0;
     font-size: 16px;
     color: #777777;
+    margin-bottom: 10px;
 }
 
 .service-name p {
     font-size: 12px;
+    line-height: 1.5;
     color: #7c7c7c;
+    text-align: justify;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+	.service-name {
+		text-align: center;
+	}
+
+	.service-name p {
+		text-align: center;
+	}
 }
 
 .section-about {
