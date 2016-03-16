@@ -13,6 +13,7 @@ a {
 
 header {
     padding: 0 150px;
+    background-color: #ede7db;
 }
 
 .clear {
@@ -139,7 +140,7 @@ header {
 }
 
 .logo div:nth-child(1) {
-	color: #A6CE39;
+	color: #7eb097;
 	line-height: 0.7;
 }
 
@@ -235,7 +236,7 @@ header h1 {
 
 .service-section {
     padding: 100px 0;
-    background-color: #A6CE39;
+    background-color: #ede7db;
     text-align: center;
 }
 
