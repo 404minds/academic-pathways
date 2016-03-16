@@ -8,6 +8,7 @@ body {
 }
 
 a {
+	color: #e28e76;
     text-decoration: none;
 }
 
@@ -23,6 +24,14 @@ header {
 .container {
 	width: 980px;
 	margin: 0 auto;
+}
+
+.heading {
+	color: #555555;
+}
+
+.text {
+	color: #717171;
 }
 
 @media (max-width: 980px) {
@@ -291,14 +300,12 @@ header h1 {
 
 .section-about h1 {
     font-size: 45px;
-    color: #000000;
     margin: 0;
     margin-bottom: 10px;
 }
 
 .section-about h5 {
     font-size: 16px;
-    color: #000000;
     margin: 0 50px;
 }
 
@@ -463,16 +470,14 @@ address {
     background-color: #ffffff;
 }
 
-.head{
+.head {
     font-size: 45px;
-    color: #000000;
     margin: 0;
     margin-bottom: 10px;
 }
 
 .tagline {
     font-size: 16px;
-    color: #000000;
     margin: 0 50px;
 }
 
