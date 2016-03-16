@@ -412,6 +412,35 @@ header h1 {
     margin: 0 50px;
 }
 
+.section-team {
+	font-family: 'Droid Serif', serif;
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+@media (max-width: 980px) {
+	.section-team {
+		padding: 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.section-team {
+		padding: 20px;
+	}
+}
+
+.section-team h1 {
+    font-size: 45px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.section-team h5 {
+    font-size: 16px;
+    margin: 0 50px;
+}
+
 .team-container {
     width: 100%;
     text-align: center;
@@ -449,6 +478,8 @@ header h1 {
 }
 
 .team-image {
+	border-radius: 100%;
+	overflow: hidden;
     width: 175px;
     height: 175px;
     margin: 0 auto;
