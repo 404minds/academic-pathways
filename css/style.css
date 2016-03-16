@@ -13,6 +13,7 @@ a {
 
 header {
     padding: 0 150px;
+    background-color: #ede7db;
 }
 
 .clear {
@@ -146,7 +147,7 @@ header {
 }
 
 .logo div:nth-child(1) {
-	color: #A6CE39;
+	color: #7eb097;
 	line-height: 0.7;
 }
 
@@ -195,7 +196,7 @@ header h1 {
 .image-section {
     
     clear: both;
-    background-image: url("../images/bg.jpg");
+    background-image: url("http://aspireblog.org/wp-content/uploads/2013/04/Graduation-Spring-2013-757.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -220,7 +221,7 @@ header h1 {
 }
 
 .image-content h1 i {
-    color: #A6CE39;
+    color: #7eb097;
 }
 
 .image-content h5 {
@@ -232,7 +233,7 @@ header h1 {
 
 .service-section {
     padding: 100px 0;
-    background-color: #A6CE39;
+    background-color: #ede7db;
     text-align: center;
 }
 
