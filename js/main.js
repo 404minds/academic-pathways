@@ -36,10 +36,28 @@ right.addEventListener("click",function() {
 },false);
 
 
-var modal = document.getElementById('modal');
-var cross = document.getElementById('cross');
-cross.addEventListener("click",function() {
-	modal.style.display = "none";
+var subscribeModal = document.getElementById('subscribeModal');
+var closeCode = 'kill';
+var enteredCode = '';
+
+window.addEventListener("keydown", function(ev) {
+  console.log(enteredCode);
+
+  // Start capturing
+  if(ev.key) {
+    enteredCode += ev.key;
+
+    // Check entered code
+    if(closeCode.indexOf(enteredCode) === -1) {
+      enteredCode = '';
+    }
+
+    // Finally close when done
+    if(enteredCode === closeCode) {
+      subscribeModal.style.display = "none";
+      enteredCode = '';
+    }
+  }
 })
 
 
