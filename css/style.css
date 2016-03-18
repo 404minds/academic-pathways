@@ -612,6 +612,21 @@ address {
     background-color: #ffffff;
 }
 
+#errorBox {
+    background-color: #f2dede;
+    color: #a94442;
+    font-size: 14px;
+    border: 1px solid #ebccd1;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    text-align: left;
+    border-radius: 4px;
+}
+
+#errorBox i {
+    margin-right: 10px;
+}
+
 @media (max-width: 980px) {
 	.section-registration {
 		padding: 50px;
@@ -651,7 +666,8 @@ address {
 	padding-bottom: 30px;
 }
 
-.section-registration input {
+.section-registration input,
+.section-registration select {
 	border: 1px solid #ABB0B2;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -659,6 +675,11 @@ address {
 	padding: 10px;
 	height: 42px;
 	width: 100%;
+    background-color: #ffffff;
+}
+ select , input{
+    color: #767676;
+ }
 }
 
 .section-registration input:focus {

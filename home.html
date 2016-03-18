@@ -239,27 +239,39 @@
             <h1 class="heading"><i class="fa fa-plus"></i>&nbsp;REGISTER WITH US</h1>
             <h5 class="text">...to serve you better!</h5>
             <div class="registration-form-wrapper">
+                <div id="errorBox"></div>
                 <form method="post" id="registration-form" novalidate>
                     <div class="field-group">
-                        <input type="text" value="" name="NAME" class="required" placeholder="Name">
+                        <input type="text" value="" name="Name" class="required" placeholder="Name">
                     </div>
                     <div class="field-group">
-                        <input type="email" value="" name="EMAIL" class="required email" placeholder="Email">
+                        <input type="email" value="" name="Email" class="required email" placeholder="Email">
                     </div>
                     <div class="field-group">
-                        <input type="text" name="CONTACT" class="required" value="" placeholder="Contact Number">
+                        <input type="text" name="Contact" class="required" value="" placeholder="Contact Number">
                     </div>
                     <div class="field-group">
-                        <input type="text" value="" name="COURSE" placeholder="Course Interested">
+                      <select type="text" value="" name="Course">
+                        <option class="default" value="">Course Interested</option>
+                        <option>B.Tech</option>
+                        <option>M.tech</option>
+                        <option>MBA</option>
+                        <option>Ph.D</option>
+                      </select>
                     </div>
                     <div class="field-group">
-                        <input type="text" value="" name="HQULF" placeholder="Highest Qualification ">
+                        <input type="text" value="" name="Hqual" placeholder="Highest Qualification ">
                     </div>
                     <div class="field-group">
-                        <input type="number" value="" name="EXPER" placeholder="Experience (years)">
+                        <input type="number" value="" name="Exper" placeholder="Experience (years)">
                     </div>
                     <div class="field-group">
-                        <input type="text" value="" name="LOCATION" placeholder="Location">
+                      <select type="text" value="" name="Location" >
+                        <option class="default" value="">Location</option>
+                        <option>UP West</option>
+                        <option>Ajmer-Rajasthan</option>
+                      </select>
+                       
                     </div>
                     <div class="clear">
                         <input type="submit" value="Subscribe" name="subscribe" id="registration-form-submit" class="button">
