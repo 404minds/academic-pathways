@@ -11,12 +11,14 @@ var right = document.getElementById('right');
 var wrapper = document.getElementsByClassName('text-wrapper');
 var width = document.getElementById('slide').getBoundingClientRect().width;
 
+var onTransitionend = function() {
+  this.style.opacity = 1;
+  this.removeEventListener("transitionend", onTransitionend);
+};
+
 for(var i = 1, l = wrapper.length; i < l; i++) {
   wrapper[i].style.left = width * i + "px";
-  wrapper[i].addEventListener("transitionend", function() {
-    this.style.opacity = 1;
-    this.removeEventListener("transitionend");
-  }, false);
+  wrapper[i].addEventListener("transitionend", onTransitionend, false);
 }
 
 left.addEventListener("click",function() {
