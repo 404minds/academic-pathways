@@ -15,13 +15,21 @@ var transporter = nodemailer.createTransport({
 
 var route = function(app) {
 	app.get('/mail' ,function(req,res) {
+		
+	});
+
+	app.post('/register', function(req,res) {
 		// setup e-mail data with unicode symbols
 		var mailOptions = {
 		    from: 'info@academicpathways.in', // sender address
-		    to: 'rinki.bansal07@gmail.com', // list of receivers
-		    subject: 'Hello', // Subject line
-		    text: 'How r u doing', // plaintext body
-		    html: '<b>Hello world</b>' // html body
+		    to: req.body.email , // list of receivers
+		    subject: 'Welcome to Academic Pathways', // Subject line
+		    html: '<b>Hello'+req.body.name+'</b><br>\
+		    <p>Thank you for registering with Academic Pathways.</p>\
+		    <p>You have expressed your interest for' +req.body.course+ 'course, in ' +req.body.location+ ' area. We will get back to you shortly.</p>\
+		    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
+                                <a href="tel:+91-8126422892">+91-8126422892</a></p><br>\
+			<p>- Team Academic Pathways</p>' // html body
 		};
 
 		// send mail with defined transport object
@@ -34,13 +42,6 @@ var route = function(app) {
 
 		    res.sendStatus(200);
 		});
-
-
-	});
-
-	app.post('/register', function(req,res) {
-		var x = "hello"+req.body.name+"\nEmail:"+req.body.email+"\nContact:"+req.body.contact+"\nIntrested Course:"+req.body.course+"\nQualification:"+req.body.hqual+"\nExperince:"+req.body.exper+"\nLocation:"+req.body.location+"\n";
-		res.send(x);
 	});
 
 }
