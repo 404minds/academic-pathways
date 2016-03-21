@@ -125,7 +125,7 @@ form.addEventListener("submit", function(event) {
 
      // Send data to API
      $.ajax({
-      url: 'http://127.0.0.1:5000/register',
+      url: '/register',
       type: 'post',
       dataType: 'json',
       data: $(form).serialize(),
@@ -182,7 +182,7 @@ sform.addEventListener("submit", function(event) {
 
     // Send data to API
     $.ajax({
-      url: 'http://127.0.0.1:5000/subscribe',
+      url: '/subscribe',
       type: 'post',
       dataType: 'json',
       data: $(sform).serialize(),
