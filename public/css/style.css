@@ -617,6 +617,19 @@ address {
 	width: 100%;
 }
 
+.section-registration .registration-successful {
+    text-align: center;
+    display: none;
+}
+
+.section-registration .registration-successful p:nth-child(1) {
+    font-size: 34px;
+}
+
+.section-registration .registration-successful p:nth-child(2) {
+    font-size: 22px;
+}
+
 .section-registration form {
 	margin: 0 auto;
 	max-width: 400px;

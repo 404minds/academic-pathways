@@ -41,8 +41,6 @@ var closeCode = 'kill';
 var enteredCode = '';
 
 window.addEventListener("keydown", function(ev) {
-  console.log(enteredCode);
-
   // Start capturing
   if(ev.key) {
     enteredCode += ev.key;
@@ -90,7 +88,7 @@ form.addEventListener("submit", function(event) {
     text = "Enter the contact number";
     reset(form.contact, text ,errorBox);
     return false;
-  }else if(!(form.contact.value.length == 10))  {
+  } else if(!(form.contact.value.length == 10))  {
     text = "Enter the valid contact number";
     reset(form.contact, text ,errorBox);
     return false;
@@ -102,31 +100,48 @@ form.addEventListener("submit", function(event) {
     return false;
   }  
 
-  if(form.hqual.value == "") {
+  /*if(form.hqual.value == "") {
     text = "Enter Your High qualification";
     reset(form.hqual, text ,errorBox);
     return false;
-  }  
+  }*/
   
-  if(form.location.value == "") {
+  /*if(form.location.value == "") {
     text = "Select the Location";
     reset(form.location, text ,errorBox);
     return false;
-  }  
+  }*/
   
-  if(form.exper.value == "") {
+  /*if(form.exper.value == "") {
     text = "Enter the experience";
     reset(form.exper, text ,errorBox);
     return false;
-  }  
+  }*/
   
   
-  if(form.name.value != '' && form.email.value != '' && form.contact.value != '' && form.course.value != "" && form.hqual.value != '' && form.course.value != "" && form.exper.value != '') {
-   // Send data to API
-   doSend();
-   errorBox.innerHTML = '<i class="fa fa-check"></i>'+"Form submitted successfully";
-  }
+  if(form.name.value != '' && form.email.value != '' && form.contact.value != '' && form.course.value != "") {
+     // Disable submit button
+     $("#registration-form-submit").prop('disabled', true);
 
+     // Send data to API
+     $.ajax({
+      url: 'http://127.0.0.1:5000/register',
+      type: 'post',
+      dataType: 'json',
+      data: $(form).serialize(),
+      complete: function(jqXHR, textStatus) {
+        if(jqXHR.status === 200) {
+          $("#regFormWrapper,#regSuccessWrapper").toggle();
+          $("#register").find("h1.heading, h5.text").hide();
+        } else {
+          alert("We are not able to accept registrations at this moment, please try again later.");
+        }
+
+        // Enable submit button again
+        $("#registration-form-submit").prop('disabled', false);
+      }
+    });
+  }
 });
 
 
@@ -154,18 +169,17 @@ sform.addEventListener("submit", function(event) {
     return false;
   }
 
-  if(sform.contact.value == "") {
-    text = "Enter the contact number";
-    reset(sform.contact, text ,errorBox);
-    return false;
-  }else if(!(sform.contact.value.length == 10))  {
+  if(!!sform.contact.value && sform.contact.value.length != 10)  {
     text = "Enter the valid contact number";
     reset(sform.contact, text ,errorBox);
     return false;
   }
   
   
-  if(sform.name.value != '' && sform.email.value != '' && sform.contact.value != '') {
+  if(sform.name.value != '' && sform.email.value != '') {
+    // Disable submit button
+    $("#subscribe-form-submit").prop('disabled', true);
+
     // Send data to API
     $.ajax({
       url: 'http://127.0.0.1:5000/subscribe',
@@ -174,6 +188,9 @@ sform.addEventListener("submit", function(event) {
       data: $(sform).serialize(),
       complete: function(jqXHR, textStatus) {
         subscribeModal.style.display = "none";
+
+        // Enable submit button
+        $("#subscribe-form-submit").prop('disabled', false);
       }
     });
   }
@@ -189,17 +206,4 @@ function reset(box, text ,errorBox) {
     errorBox.style.display = "none";
   },false);
 
-}
-
-function doSend() {
-  $.ajax({
-    url: 'http://127.0.0.1:5000/register',
-    type: 'post',
-    dataType: 'json',
-    data: $(form).serialize(),
-    complete: function(jqXHR, textStatus) {
-        alert("Success");
-        console.log(jqXHR);
-    }
-  });
 }
