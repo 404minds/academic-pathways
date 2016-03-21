@@ -38,8 +38,9 @@ var route = function(app) {
 
 	});
 
-	app.post('/',function(req,res){
-		res.send("hello"+req.body.name+"\nEmail:"+req.body.email+"\nContact:"+req.body.contact+"\nIntrested Course:"+req.body.course+"\nQualification:"+req.body.qualification+"\nExperince:"+req.body.experience+"\nLocation:"+req.body.location+"\n");
+	app.post('/register', function(req,res) {
+		var x = "hello"+req.body.name+"\nEmail:"+req.body.email+"\nContact:"+req.body.contact+"\nIntrested Course:"+req.body.course+"\nQualification:"+req.body.hqual+"\nExperince:"+req.body.exper+"\nLocation:"+req.body.location+"\n";
+		res.send(x);
 	});
 
 }

@@ -62,67 +62,70 @@ window.addEventListener("keydown", function(ev) {
 
 
 var form = document.getElementById('registration-form');
- var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/; 
+var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/; 
 var errorBox = document.getElementById('errorBox');
 var text = "";
 form.addEventListener("submit", function(event) {
   event.preventDefault();
-  if(form.Name.value == "") {
+  if(form.name.value == "") {
     text = "Enter the first name";
-    reset(form.Name, text);
+    reset(form.name, text);
     return false;
   }  
    
-  if (form.Email.value == "" ) {
+  if (form.email.value == "" ) {
   text = "Enter the email";
-  reset(form.Email, text);
+  reset(form.email, text);
   return false;
-  }else if(!emailRegex.test(form.Email.value)) {
+  }else if(!emailRegex.test(form.email.value)) {
     text = "Enter the valid email";
-    reset(form.Email, text);
+    reset(form.email, text);
     return false;
   }
 
-  if(form.Contact.value == "") {
+  if(form.contact.value == "") {
     text = "Enter the contact number";
-    reset(form.Contact, text);
+    reset(form.contact, text);
     return false;
-  }else if(!(form.Contact.value.length == 10))  {
+  }else if(!(form.contact.value.length == 10))  {
     text = "Enter the valid contact number";
-    reset(form.Contact, text);
+    reset(form.contact, text);
     return false;
   }
 
-  if(form.Course.value == "Course Interested") {
+  if(form.course.value == "Course Interested") {
     text = "Select the course Interested";
-    reset(form.Course, text);
+    reset(form.course, text);
     return false;
   }  
 
-  if(form.Hqual.value == "") {
+  if(form.hqual.value == "") {
     text = "Enter Your High qualification";
-    reset(form.Hqual, text);
+    reset(form.hqual, text);
     return false;
   }  
   
-  if(form.Location.value == "Location") {
+  if(form.location.value == "Location") {
     text = "Select the Location";
-    reset(form.Location, text);
+    reset(form.location, text);
     return false;
   }  
   
-  if(form.Exper.value == "") {
+  if(form.exper.value == "") {
     text = "Enter the experience";
-    reset(form.Exper, text);
+    reset(form.exper, text);
     return false;
   }  
   
   
-  if(form.Name.value != '' && form.Email.value != '' && form.Contact.value != '' && form.Course.value != "" && form.Hqual.value != '' && form.Course.value != "" && form.Exper.value != '') {
+  if(form.name.value != '' && form.email.value != '' && form.contact.value != '' && form.course.value != "" && form.hqual.value != '' && form.course.value != "" && form.exper.value != '') {
+   // Send data to API
+   doSend();
+
    errorBox.innerHTML = '<i class="fa fa-check"></i>'+"Form submitted successfully";
-   
-     
-}})
+  }
+
+});
 
 
 function reset(box, text) {
@@ -135,5 +138,15 @@ function reset(box, text) {
 
 }
 
-
-
+function doSend() {
+  $.ajax({
+    url: 'http://127.0.0.1:5000/register',
+    type: 'post',
+    dataType: 'json',
+    data: $(form).serialize(),
+    complete: function(jqXHR, textStatus) {
+        alert("Success");
+        console.log(jqXHR);
+    }
+  });
+}
