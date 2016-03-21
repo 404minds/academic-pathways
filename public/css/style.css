@@ -572,7 +572,7 @@ address {
     background-color: #ffffff;
 }
 
-#errorBox {
+.error-box {
     background-color: #f2dede;
     color: #a94442;
     font-size: 14px;
@@ -581,6 +581,7 @@ address {
     margin-bottom: 30px;
     text-align: left;
     border-radius: 4px;
+    display: none;
 }
 
 #errorBox i {

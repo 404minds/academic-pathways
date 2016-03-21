@@ -63,57 +63,60 @@ window.addEventListener("keydown", function(ev) {
 
 var form = document.getElementById('registration-form');
 var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/; 
-var errorBox = document.getElementById('errorBox');
+
 var text = "";
 form.addEventListener("submit", function(event) {
   event.preventDefault();
+
+  var errorBox = document.getElementById('errorBox1');
+
   if(form.name.value == "") {
-    text = "Enter the first name";
-    reset(form.name, text);
+    text = "Enter the name";
+    reset(form.name, text ,errorBox);
     return false;
   }  
    
   if (form.email.value == "" ) {
   text = "Enter the email";
-  reset(form.email, text);
+  reset(form.email, text ,errorBox);
   return false;
   }else if(!emailRegex.test(form.email.value)) {
     text = "Enter the valid email";
-    reset(form.email, text);
+    reset(form.email, text ,errorBox);
     return false;
   }
 
   if(form.contact.value == "") {
     text = "Enter the contact number";
-    reset(form.contact, text);
+    reset(form.contact, text ,errorBox);
     return false;
   }else if(!(form.contact.value.length == 10))  {
     text = "Enter the valid contact number";
-    reset(form.contact, text);
+    reset(form.contact, text ,errorBox);
     return false;
   }
 
-  if(form.course.value == "Course Interested") {
+  if(form.course.value == "") {
     text = "Select the course Interested";
-    reset(form.course, text);
+    reset(form.course, text ,errorBox);
     return false;
   }  
 
   if(form.hqual.value == "") {
     text = "Enter Your High qualification";
-    reset(form.hqual, text);
+    reset(form.hqual, text ,errorBox);
     return false;
   }  
   
-  if(form.location.value == "Location") {
+  if(form.location.value == "") {
     text = "Select the Location";
-    reset(form.location, text);
+    reset(form.location, text ,errorBox);
     return false;
   }  
   
   if(form.exper.value == "") {
     text = "Enter the experience";
-    reset(form.exper, text);
+    reset(form.exper, text ,errorBox);
     return false;
   }  
   
@@ -121,19 +124,69 @@ form.addEventListener("submit", function(event) {
   if(form.name.value != '' && form.email.value != '' && form.contact.value != '' && form.course.value != "" && form.hqual.value != '' && form.course.value != "" && form.exper.value != '') {
    // Send data to API
    doSend();
-
    errorBox.innerHTML = '<i class="fa fa-check"></i>'+"Form submitted successfully";
   }
 
 });
 
 
-function reset(box, text) {
+
+var sform = document.getElementById('subscribe-form');
+var text = "";
+sform.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var errorBox = document.getElementById('errorBox2');
+
+  if(sform.name.value == "") {
+    text = "Enter the name";
+    reset(sform.name, text ,errorBox);
+    return false;
+  }  
+   
+  if (sform.email.value == "" ) {
+  text = "Enter the email";
+  reset(sform.email, text ,errorBox);
+  return false;
+  }else if(!emailRegex.test(sform.email.value)) {
+    text = "Enter the valid email";
+    reset(sform.email, text ,errorBox);
+    return false;
+  }
+
+  if(sform.contact.value == "") {
+    text = "Enter the contact number";
+    reset(sform.contact, text ,errorBox);
+    return false;
+  }else if(!(sform.contact.value.length == 10))  {
+    text = "Enter the valid contact number";
+    reset(sform.contact, text ,errorBox);
+    return false;
+  }
+  
+  
+  if(sform.name.value != '' && sform.email.value != '' && sform.contact.value != '') {
+    // Send data to API
+    $.ajax({
+      url: 'http://127.0.0.1:5000/subscribe',
+      type: 'post',
+      dataType: 'json',
+      data: $(sform).serialize(),
+      complete: function(jqXHR, textStatus) {
+        subscribeModal.style.display = "none";
+      }
+    });
+  }
+
+});
+
+function reset(box, text ,errorBox) {
   errorBox.style.display = "block";
   errorBox.innerHTML = text;
   box.style.borderColor = "#a94442";
   box.addEventListener("focus", function() {
     box.style.borderColor = "#000000";
+    errorBox.style.display = "none";
   },false);
 
 }

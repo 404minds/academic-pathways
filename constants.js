@@ -1,7 +1,7 @@
  module.exports = {
- 	HOST: "smtp-relay.sendinblue.com",
+ 	HOST: "smtp.mandrillapp.com",
     SECURE: false,
     PORT: 587,
- 	USER: "acdpathway@gmail.com",
-    PASS: "ckrgQjE75PJ9OhwT"
+ 	USER: "niftytushar@gmail.com",
+    PASS: "0-M0dOq0xC0oe6ALRvUZJA"
  };
