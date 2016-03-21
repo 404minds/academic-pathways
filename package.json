@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/404minds/academic-pathways#readme",
   "dependencies": {
+    "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "nodemailer": "^2.3.0"

@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var Promise = require("bluebird");
 var constant = require('./constants.js');
 
 // create reusable transporter object using the default SMTP transport
@@ -11,6 +12,8 @@ var transporter = nodemailer.createTransport({
         pass: constant.PASS
     }
 });
+
+Promise.promisifyAll(transporter);
 
 
 var route = function(app) {
@@ -28,26 +31,39 @@ var route = function(app) {
 		    <p>Thank you for registering with Academic Pathways.</p>\
 		    <p>You have expressed your interest for ' +req.body.course+ ' course, in ' +req.body.location+ ' area. We will get back to you shortly.</p>\
 		    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
-                                <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
+            <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
 			<p>- Team Academic Pathways</p>' // html body
 		};
 
-		console.log(mailOptions);
+		var mailOptionsSelf = {
+			from: '"Academic Pathways" info@academicpathways.in', // sender address
+		    to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
+		    subject: 'New User Registration', // Subject line
+		    html: '<strong>Name:</strong> ' + req.body.name + '<br>\
+		    <strong>Email:</strong> ' + req.body.email + '<br>\
+		    <strong>Contact:</strong> ' + req.body.contact + '<br>\
+		    <strong>Course:</strong> ' + req.body.course + '<br>\
+		    <strong>Highest Qualification:</strong> ' + req.body.hqual + '<br>\
+		    <strong>Experience(yrs):</strong> ' + req.body.exper + '<br>\
+		    <strong>Location:</strong> ' + req.body.location + '<br>'
+		};
 
-		// send mail with defined transport object
-		transporter.sendMail(mailOptions, function(error, info){
-		    if(error){
-		        console.log(error);
-		        res.sendStatus(500);
-		        return false;
-		    }
+		var mailPromises = [];
+		mailPromises.push(transporter.sendMailAsync(mailOptions));
+		mailPromises.push(transporter.sendMailAsync(mailOptionsSelf));
 
-		    console.log(info);
-		    res.sendStatus(200);
-		});
+		Promise.all(mailPromises)
+			.then(function() {
+				// Success
+				res.sendStatus(200);
+			})
+			.catch(function(ex) {
+				// Error
+				res.sendStatus(500);
+			});
 	});
 
-	app.post('/subscribe', function(req,res) {
+	app.post('/subscribe', function(req, res) {
 		// setup e-mail data with unicode symbols
 		var mailOptions = {
 		    from: '"Academic Pathways" info@academicpathways.in', // sender address
@@ -56,23 +72,32 @@ var route = function(app) {
 		    html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
 		    <p>Thank you for subscribing with Academic Pathways.</p>\
 		    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
-                                <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
+            <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
 			<p>- Team Academic Pathways</p>' // html body
 		};
 
-		console.log(mailOptions);
+		var mailOptionsSelf = {
+		    from: '"Academic Pathways" info@academicpathways.in', // sender address
+		    to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
+		    subject: 'New User Subscription', // Subject line
+		    html: '<strong>Name:</strong> ' + req.body.name + '<br>\
+		    <strong>Email:</strong> ' + req.body.email + '<br>\
+		    <strong>Contact:</strong> ' + req.body.contact + '<br>'
+		};
 
-		// send mail with defined transport object
-		transporter.sendMail(mailOptions, function(error, info){
-		    if(error){
-		        console.log(error);
-		        res.sendStatus(500);
-		        return false;
-		    }
+		var mailPromises = [];
+		mailPromises.push(transporter.sendMailAsync(mailOptions));
+		mailPromises.push(transporter.sendMailAsync(mailOptionsSelf));
 
-		    console.log(info);
-		    res.sendStatus(200);
-		});
+		Promise.all(mailPromises)
+			.then(function() {
+				// Success
+		    	res.sendStatus(200);
+			})
+			.catch(function(ex) {
+				// Error
+				res.sendStatus(500);
+			});
 	});
 
 
