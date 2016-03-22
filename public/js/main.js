@@ -189,6 +189,9 @@ sform.addEventListener("submit", function(event) {
       complete: function(jqXHR, textStatus) {
         subscribeModal.style.display = "none";
 
+        // Save cookie
+        docCookies.setItem('subscribe', 1, Infinity);
+
         // Enable submit button
         $("#subscribe-form-submit").prop('disabled', false);
       }
@@ -206,4 +209,10 @@ function reset(box, text ,errorBox) {
     errorBox.style.display = "none";
   },false);
 
+}
+
+
+// Hide modal if cookie is saved
+if(+docCookies.getItem('subscribe')) {
+  subscribeModal.style.display = "none";
 }
