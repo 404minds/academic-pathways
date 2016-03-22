@@ -58,7 +58,7 @@ header {
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
 
