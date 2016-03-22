@@ -13,9 +13,11 @@ a {
 }
 
 header {
-    padding: 0 150px;
+    padding: 0 50px;
     background-color: #ede7db;
 }
+
+
 
 .clear {
 	clear: both;
@@ -38,6 +40,8 @@ header {
 	.container {
 		width: 100%;
 	}
+
+
 }
 
 
@@ -54,9 +58,10 @@ header {
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
+
 }
 
 
@@ -103,16 +108,63 @@ header {
 	max-width: 400px;
 }
 
+
+.head-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+    .head-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+     .head-wrapper .menues {
+        width: 100%;
+        text-align: center;
+         flex: none;
+    }
+
+    .logo h1{
+        margin-bottom: 0;
+    }
+
+    .menues .menu {
+        margin: 0;
+    }
+
+
+}
+
 .logo {
     display: inline-block;
     padding-right: 150px;
-    float: left;
+}
+
+@media (max-width: 800px) {
+    .logo {
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 480px) {
-	.logo {
+	header {
+        padding: 0;
+    }
+
+    .logo {
 		padding-right: 0;
+        width: 100%;
 	}
+
+    .menues {
+        width: 100%;
+    }
+
+    .menu li {
+        padding: 0 5px;
+    }
 }
 
 .logo div:nth-child(1) {
@@ -129,18 +181,32 @@ header {
 }
 
 .menues {
-    padding: 10px;
+    padding: 10px 0;
     display: inline-block;
-    float: right;
+    flex: 1;
+    text-align: right;
 }
 
 .menu {
     list-style: none;
+    padding: 0;
+
 }
 
 .menu li {
     display: inline-block;
     padding: 0 10px;
+}
+
+@media (max-width: 400px) {
+    .menu li {
+        display: inline-block;
+        padding: 0 5px;
+    }
+
+    .menu .head-icons {
+        display: none;
+    }
 }
 
 .menu a {
@@ -169,6 +235,40 @@ header h1 {
     background-color: #2d526f;
 }
 
+@media (max-width: 480px) {
+    body .image-section  {
+        height: 320px;
+    }
+
+    .image-section .image-content h1 {
+        font-size: 28px;
+    } 
+
+     .image-section .image-content h5 {
+        font-size: 16px;
+    } 
+}
+
+
+
+@media (min-width: 481px) and (max-width: 800px) {
+    .image-section  {
+        height: 500px;
+    }
+
+    .image-section .image-content h1 {
+        font-size: 35px;
+    } 
+
+    .image-section .image-content h5 {
+        font-size: 19px;
+    } 
+}
+
+
+
+
+
 .image-section .bg-image {
 	position: absolute;
 	top: 0;
@@ -192,6 +292,15 @@ header h1 {
     top: 50%;
     transform: translateY(-50%);
 }
+
+@media (max-width: 980px) {
+    .image-content  {
+        padding-left: 50px;
+    }
+
+    
+}
+
 
 .image-content h1 {
     font-size: 45px;
@@ -239,6 +348,7 @@ header h1 {
 @media (max-width: 480px) {
 	.service-contain {
 		flex-direction: column;
+        padding-bottom: 20px;
 	}
 }
 
@@ -344,11 +454,18 @@ header h1 {
 	.service-name {
 		text-align: center;
 	}
+    .service-name h5 {
+        font-size: 18px;
+    }
 
 	.service-name p {
 		text-align: center;
+        font-size: 14px;
 	}
 }
+
+
+
 
 .section-about {
     font-family: 'Droid Serif', serif;
@@ -362,13 +479,7 @@ header h1 {
 	}
 }
 
-@media (max-width: 480px) {
-	.section-about {
-		padding: 20px;
-	}
-}
-
-.section-about h1 {
+section-about h1 {
     font-size: 45px;
     margin: 0;
     margin-bottom: 10px;
@@ -378,6 +489,32 @@ header h1 {
     font-size: 16px;
     margin: 0 50px;
 }
+
+@media (min-width: 481px) and (max-width: 600px) {
+    .section-contact h1 {
+    font-size: 36px;
+    }
+
+    .section-contact h5 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+	.section-about {
+		padding: 20px;
+	}
+
+    .section-about h1 {
+    font-size: 24px;
+    }
+
+    .section-about h5 {
+        font-size: 14px;
+    }
+}
+
+
 
 .section-team {
 	font-family: 'Droid Serif', serif;
@@ -406,6 +543,25 @@ header h1 {
 .section-team h5 {
     font-size: 16px;
     margin: 0 50px;
+}
+@media (min-width: 481px) and (max-width: 600px) {
+    .section-team h1 {
+    font-size: 36px;
+    }
+
+    .section-team h5 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-team h1 {
+    font-size: 24px;
+    }
+
+    .section-team h5 {
+        font-size: 14px;
+    }
 }
 
 .team-container {
@@ -523,6 +679,29 @@ header h1 {
     font-style: italic;
 }
 
+
+
+@media (min-width: 481px) and (max-width: 600px) {
+    .section-contact h1 {
+    font-size: 36px;
+    }
+
+    .section-contact h5 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-contact h1 {
+    font-size: 24px;
+    }
+
+    .section-contact h5 {
+        font-size: 14px;
+    }
+}
+
+
 .contact-wrapper {  
     margin-top: 50px;
 }
@@ -610,6 +789,29 @@ address {
     font-size: 16px;
     margin: 0 50px;
 }
+
+@media (min-width: 481px) and (max-width: 600px) {
+    .section-contact h1 {
+    font-size: 36px;
+    }
+
+    .section-contact h5 {
+        font-size: 14px;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .section-registration h1 {
+    font-size: 24px;
+    }
+
+    .section-registration h5 {
+        font-size: 14px;
+    }
+}
+
 
 .section-registration .registration-form-wrapper {
 	margin-top: 50px;
