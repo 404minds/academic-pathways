@@ -1,6 +1,18 @@
 var nodemailer = require('nodemailer');
 var Promise = require("bluebird");
 var constant = require('./constants.js');
+// Retrieve
+var MongoClient = require('mongodb').MongoClient;
+
+// Connect to the db
+		MongoClient.connect("mongodb://localhost:27017/acdpathway", function(err, db) {
+		  if(err) { 
+		  	return console.dir(err);
+		   }else {
+		   	return console.log("We are connected");
+		  }
+		   
+		});
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
@@ -64,6 +76,12 @@ var route = function(app) {
 	});
 
 	app.post('/subscribe', function(req, res) {
+
+	    // Get our form values. These rely on the "name" attributes
+	    var name = req.body.name;
+	    var email = req.body.email;
+	    var contact = req.body.contact;
+
 		// setup e-mail data with unicode symbols
 		var mailOptions = {
 		    from: '"Academic Pathways" info@academicpathways.in', // sender address
@@ -98,8 +116,26 @@ var route = function(app) {
 				// Error
 				res.sendStatus(500);
 			});
+
+		// Submit to the DB
+		req.db.subscribe.insert({
+	        "name" : name,
+	        "email" : email,
+	        "contact": contact
+	    }, function (err, doc) {
+	        if (err) {
+	            // If it failed, return error
+	            res.send("There was a problem adding the information to the database.");
+	        }
+	        else {
+	            // And forward to success page
+	            res.redirect("userlist");
+	        }
+	    });
+
 	});
 
+	
 
 }
 
