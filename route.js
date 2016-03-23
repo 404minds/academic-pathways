@@ -29,58 +29,80 @@ var transporter = nodemailer.createTransport({
 
 Promise.promisifyAll(transporter);
 
-
 var route = function(app) {
 
 	app.post('/register', function(req,res) {
-		// setup e-mail data with unicode symbols
-		var mailOptions = {
-		    from: '"Academic Pathways" info@academicpathways.in', // sender address
-		    to: req.body.email , // list of receivers
-		    subject: 'Welcome to Academic Pathways', // Subject line
-		    html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
-		    <p>Thank you for registering with Academic Pathways.</p>\
-		    <p>You have expressed your interest for ' +req.body.course+ ' course, in ' +req.body.location+ ' area. We will get back to you shortly.</p>\
-		    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
-            <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
-			<p>- Team Academic Pathways</p>' // html body
-		};
 
-		var mailOptionsSelf = {
-			from: '"Academic Pathways" info@academicpathways.in', // sender address
-		    to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
-		    subject: 'New User Registration', // Subject line
-		    html: '<strong>Name:</strong> ' + req.body.name + '<br>\
-		    <strong>Email:</strong> ' + req.body.email + '<br>\
-		    <strong>Contact:</strong> ' + req.body.contact + '<br>\
-		    <strong>Course:</strong> ' + req.body.course + '<br>\
-		    <strong>Highest Qualification:</strong> ' + req.body.hqual + '<br>\
-		    <strong>Experience(yrs):</strong> ' + req.body.exper + '<br>\
-		    <strong>Location:</strong> ' + req.body.location + '<br>'
-		};
+		console.log(req.body);
 
+		// Connect to db
+		
 		var mailPromises = [];
-		mailPromises.push(transporter.sendMailAsync(mailOptions));
-		mailPromises.push(transporter.sendMailAsync(mailOptionsSelf));
 
-		Promise.all(mailPromises)
-			.then(function() {
-				// Success
-				res.sendStatus(200);
-			})
-			.catch(function(ex) {
-				// Error
-				res.sendStatus(500);
-			});
+		MongoClient.connect(url, function(err, db) {
+
+		  if (err) { 
+		  	console.log(err);
+		   } else {
+		   
+		   	var collection = db.collection('register');
+
+		   	Promise.promisifyAll(collection);
+
+		   	mailPromises.push(collection.insertAsync(req.body));
+
+			// setup e-mail data with unicode symbols
+			var mailOptions = {
+				from: '"Academic Pathways" info@academicpathways.in', // sender address
+				to: req.body.email , // list of receivers
+				subject: 'Welcome to Academic Pathways', // Subject line
+				html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
+				<p>Thank you for registering with Academic Pathways.</p>\
+				<p>You have expressed your interest for ' +req.body.course+ ' course, in ' +req.body.location+ ' area. We will get back to you shortly.</p>\
+				<p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
+				    <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
+				<p>- Team Academic Pathways</p>' // html body
+			};
+
+			var mailOptionsSelf = {
+				from: '"Academic Pathways" info@academicpathways.in', // sender address
+				to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
+				subject: 'New User Registration', // Subject line
+				html: '<strong>Name:</strong> ' + req.body.name + '<br>\
+				<strong>Email:</strong> ' + req.body.email + '<br>\
+				<strong>Contact:</strong> ' + req.body.contact + '<br>\
+				<strong>Course:</strong> ' + req.body.course + '<br>\
+				<strong>Highest Qualification:</strong> ' + req.body.hqual + '<br>\
+				<strong>Experience(yrs):</strong> ' + req.body.exper + '<br>\
+				<strong>Location:</strong> ' + req.body.location + '<br>'
+			};
+
+			mailPromises.push(transporter.sendMailAsync(mailOptions));
+			mailPromises.push(transporter.sendMailAsync(mailOptionsSelf));
+
+			Promise.all(mailPromises)
+				.then(function() {
+					// Success
+					res.sendStatus(200);
+				})
+				.catch(function(ex) {
+					// Error
+					res.sendStatus(500);
+				});
+
+			}
+		});
 	});
 
 	app.post('/subscribe', function(req, res) {
 
 		// Connect to db
-		
+		console.log(req.body);
+	    
 		var promises = [];
 
 		MongoClient.connect(url, function(err, db) {
+
 		  if (err) { 
 		  	console.log(err);
 		   } else {
@@ -88,46 +110,42 @@ var route = function(app) {
 		   	var subscribeCollection = db.collection('subscribe');
 		   	Promise.promisifyAll(subscribeCollection);
 
-		   	promises.push(subscribeCollection.insertAsync({ "name" : name, "email" : email, "contact": contact}));
+		   	promises.push(subscribeCollection.insertAsync(req.body));
 
-		   	// Get our form values. These rely on the "name" attributes
-		    var name = req.body.name;
-		    var email = req.body.email;
-		    var contact = req.body.contact;
 
-			// setup e-mail data with unicode symbols
-			var mailOptions = {
+				// setup e-mail data with unicode symbols
+				var mailOptions = {
 			    from: '"Academic Pathways" info@academicpathways.in', // sender address
 			    to: req.body.email , // list of receivers
 			    subject: 'Welcome to Academic Pathways', // Subject line
 			    html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
 			    <p>Thank you for subscribing with Academic Pathways.</p>\
 			    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
-	            <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
-				<p>- Team Academic Pathways</p>' // html body
-			};
+	        <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
+					<p>- Team Academic Pathways</p>' // html body
+				};
 
-			var mailOptionsSelf = {
+				var mailOptionsSelf = {
 			    from: '"Academic Pathways" info@academicpathways.in', // sender address
 			    to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
 			    subject: 'New User Subscription', // Subject line
 			    html: '<strong>Name:</strong> ' + req.body.name + '<br>\
 			    <strong>Email:</strong> ' + req.body.email + '<br>\
 			    <strong>Contact:</strong> ' + req.body.contact + '<br>'
-			};
+				};
 
-			promises.push(transporter.sendMailAsync(mailOptions));
-			promises.push(transporter.sendMailAsync(mailOptionsSelf));
+				promises.push(transporter.sendMailAsync(mailOptions));
+				promises.push(transporter.sendMailAsync(mailOptionsSelf));
 
-			Promise.all(promises)
-				.then(function() {
-					// Success
-			    	res.sendStatus(200);
-				})
-				.catch(function(ex) {
-					// Error
-					res.sendStatus(500);
-				});
+				Promise.all(promises)
+					.then(function() {
+						// Success
+				    	res.sendStatus(200);
+					})
+					.catch(function(ex) {
+						// Error
+						res.sendStatus(500);
+					});
 		   }
 
 		});
