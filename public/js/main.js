@@ -58,6 +58,11 @@ window.addEventListener("keydown", function(ev) {
   }
 })
 
+var subscribeModalCloseBtn = document.getElementById('cross-btn');
+subscribeModalCloseBtn.addEventListener("click", function() {
+subscribeModal.style.display = "none";
+});
+
 
 var form = document.getElementById('registration-form');
 var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/; 

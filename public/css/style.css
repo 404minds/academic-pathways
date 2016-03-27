@@ -74,12 +74,12 @@ header {
     margin: 0 auto;
 }
 
-.cross-btn {
+#cross-btn {
     float: right;
     position: relative;
     top: 2px;
     color: #605d57;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
 }
 .modal-header {
