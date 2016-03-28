@@ -3,5 +3,6 @@
     SECURE: false,
     PORT: 587,
  	USER: "info@academicpathways.in",
-    PASS: "I4UB5mBXcyc4ADI5dx"
+    PASS: "I4UB5mBXcyc4ADI5dx",
+    DB_URL: "mongodb://localhost:27017/acdPathways"
  };

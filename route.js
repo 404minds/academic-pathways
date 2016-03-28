@@ -1,20 +1,7 @@
 var nodemailer = require('nodemailer');
 var Promise = require("bluebird");
 var constant = require('./constants.js');
-// Retrieve
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017/acdPathways';
-
-// Connect to the db
-// MongoClient.connect("mongodb://localhost:27017/acdpathways", function(err, db) {
-//   if (err) { 
-//   	return console.dir(err);
-//    } else {
-//    	mdb = db;
-//    	return console.log("We are connected");
-//   }
-   
-// });
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
@@ -35,7 +22,7 @@ var route = function(app) {
 
 		// Connect to db
 		var connect = Promise.promisify(MongoClient.connect);
-		connect(url)
+		connect(constant.DB_URL)
 			.then(function(db) {
 				var promises = [];
 
@@ -104,7 +91,7 @@ var route = function(app) {
 
 		// Connect to db
 		var connect = Promise.promisify(MongoClient.connect);
-		connect(url)
+		connect(constant.DB_URL)
 			.then(function(db) {
 				var promises = [];
 
