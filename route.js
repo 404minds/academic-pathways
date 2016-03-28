@@ -33,65 +33,70 @@ var route = function(app) {
 
 	app.post('/register', function(req,res) {
 
-		console.log(req.body);
-
 		// Connect to db
-		
-		var mailPromises = [];
+		var connect = Promise.promisify(MongoClient.connect);
+		connect(url)
+			.then(function(db) {
+				var promises = [];
 
-		MongoClient.connect(url, function(err, db) {
+				var collection = db.collection('register');
 
-		  if (err) { 
-		  	console.log(err);
-		   } else {
-		   
-		   	var collection = db.collection('register');
+			   	Promise.promisifyAll(collection);
 
-		   	Promise.promisifyAll(collection);
+			   	collection.insertAsync(req.body)
+			   		.then(function(docs) {
 
-		   	mailPromises.push(collection.insertAsync(req.body));
+			   			var registrationId = docs.insertedIds[0];
 
-			// setup e-mail data with unicode symbols
-			var mailOptions = {
-				from: '"Academic Pathways" info@academicpathways.in', // sender address
-				to: req.body.email , // list of receivers
-				subject: 'Welcome to Academic Pathways', // Subject line
-				html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
-				<p>Thank you for registering with Academic Pathways.</p>\
-				<p>You have expressed your interest for ' +req.body.course+ ' course, in ' +req.body.location+ ' area. We will get back to you shortly.</p>\
-				<p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
-				    <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
-				<p>- Team Academic Pathways</p>' // html body
-			};
+			   			// setup email data
+						var mailOptions = {
+							from: '"Academic Pathways" info@academicpathways.in', // sender address
+							to: req.body.email , // list of receivers
+							subject: 'Welcome to Academic Pathways', // Subject line
+							html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
+							<p>Thank you for registering with Academic Pathways. Your registration id is <b>' + registrationId + '</b></p>\
+							<p>You have expressed your interest for ' +req.body.course+ ' course, in ' +req.body.location+ ' area. We will get back to you shortly.</p>\
+							<p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
+							    <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
+							<p>- Team Academic Pathways</p>' // html body
+						};
 
-			var mailOptionsSelf = {
-				from: '"Academic Pathways" info@academicpathways.in', // sender address
-				to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
-				subject: 'New User Registration', // Subject line
-				html: '<strong>Name:</strong> ' + req.body.name + '<br>\
-				<strong>Email:</strong> ' + req.body.email + '<br>\
-				<strong>Contact:</strong> ' + req.body.contact + '<br>\
-				<strong>Course:</strong> ' + req.body.course + '<br>\
-				<strong>Highest Qualification:</strong> ' + req.body.hqual + '<br>\
-				<strong>Experience(yrs):</strong> ' + req.body.exper + '<br>\
-				<strong>Location:</strong> ' + req.body.location + '<br>'
-			};
+						var mailOptionsSelf = {
+							from: '"Academic Pathways" info@academicpathways.in', // sender address
+							to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
+							subject: 'New User Registration - ' + registrationId, // Subject line
+							html: '<strong>Registration ID:</strong> ' + registrationId + '<br>\
+							<strong>Name:</strong> ' + req.body.name + '<br>\
+							<strong>Email:</strong> ' + req.body.email + '<br>\
+							<strong>Contact:</strong> ' + req.body.contact + '<br>\
+							<strong>Course:</strong> ' + req.body.course + '<br>\
+							<strong>Highest Qualification:</strong> ' + req.body.hqual + '<br>\
+							<strong>Experience(yrs):</strong> ' + req.body.exper + '<br>\
+							<strong>Location:</strong> ' + req.body.location + '<br>'
+						};
 
-			mailPromises.push(transporter.sendMailAsync(mailOptions));
-			mailPromises.push(transporter.sendMailAsync(mailOptionsSelf));
+			   			promises.push(transporter.sendMailAsync(mailOptions));
+						promises.push(transporter.sendMailAsync(mailOptionsSelf));
 
-			Promise.all(mailPromises)
-				.then(function() {
-					// Success
-					res.sendStatus(200);
-				})
-				.catch(function(ex) {
-					// Error
-					res.sendStatus(500);
-				});
+						Promise.all(promises)
+						.then(function() {
+							// Success
+							res.sendStatus(200);
+						})
+						.catch(function(ex) {
+							// Error
+							console.log("Unable to send emails", ex);
+							res.sendStatus(500);
+						});
+			   		})
+			   		.catch(function(ex) {
+			   			console.log("Unable to add document", ex);
+			   		})
 
-			}
-		});
+			})
+			.catch(function(ex) {
+				console.log("Unable to connect", ex);
+			});
 	});
 
 	app.post('/subscribe', function(req, res) {
