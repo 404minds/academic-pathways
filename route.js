@@ -81,7 +81,7 @@ var route = function(app) {
 						Promise.all(promises)
 						.then(function() {
 							// Success
-							res.sendStatus(200);
+							res.sendStatus(201);
 						})
 						.catch(function(ex) {
 							// Error
@@ -91,6 +91,7 @@ var route = function(app) {
 			   		})
 			   		.catch(function(ex) {
 			   			console.log("Unable to add document", ex);
+			   			res.json({error: 'already_exists'});
 			   		})
 
 			})
@@ -102,58 +103,63 @@ var route = function(app) {
 	app.post('/subscribe', function(req, res) {
 
 		// Connect to db
-		console.log(req.body);
-	    
-		var promises = [];
+		var connect = Promise.promisify(MongoClient.connect);
+		connect(url)
+			.then(function(db) {
+				var promises = [];
 
-		MongoClient.connect(url, function(err, db) {
+				var collection = db.collection('subscribe');
 
-		  if (err) { 
-		  	console.log(err);
-		   } else {
-		   
-		   	var subscribeCollection = db.collection('subscribe');
-		   	Promise.promisifyAll(subscribeCollection);
+			   	Promise.promisifyAll(collection);
 
-		   	promises.push(subscribeCollection.insertAsync(req.body));
+			   	collection.insertAsync(req.body)
+			   		.then(function(docs) {
 
+			   			// setup email data
+						var mailOptions = {
+						    from: '"Academic Pathways" info@academicpathways.in', // sender address
+						    to: req.body.email , // list of receivers
+						    subject: 'Welcome to Academic Pathways', // Subject line
+						    html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
+						    <p>Thank you for subscribing with Academic Pathways.</p>\
+						    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
+					        <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
+							<p>- Team Academic Pathways</p>' // html body
+						};
 
-				// setup e-mail data with unicode symbols
-				var mailOptions = {
-			    from: '"Academic Pathways" info@academicpathways.in', // sender address
-			    to: req.body.email , // list of receivers
-			    subject: 'Welcome to Academic Pathways', // Subject line
-			    html: '<b style="text-transform: capitalize;">Hello '+req.body.name+',</b><br>\
-			    <p>Thank you for subscribing with Academic Pathways.</p>\
-			    <p>Feel free to contact us at <a href="tel:+91-7300737300">+91-7300737300,</a>\
-	        <a href="tel:+91-8126422892">+91-8126422892</a>.</p><br>\
-					<p>- Team Academic Pathways</p>' // html body
-				};
+						var mailOptionsSelf = {
+						    from: '"Academic Pathways" info@academicpathways.in', // sender address
+						    to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
+						    subject: 'New User Subscription', // Subject line
+						    html: '<strong>Name:</strong> ' + req.body.name + '<br>\
+						    <strong>Email:</strong> ' + req.body.email + '<br>\
+						    <strong>Contact:</strong> ' + req.body.contact + '<br>'
+						};
 
-				var mailOptionsSelf = {
-			    from: '"Academic Pathways" info@academicpathways.in', // sender address
-			    to: 'info@academicpathways.in,acdpathway@gmail.com' , // list of receivers
-			    subject: 'New User Subscription', // Subject line
-			    html: '<strong>Name:</strong> ' + req.body.name + '<br>\
-			    <strong>Email:</strong> ' + req.body.email + '<br>\
-			    <strong>Contact:</strong> ' + req.body.contact + '<br>'
-				};
+			   			promises.push(transporter.sendMailAsync(mailOptions));
+						promises.push(transporter.sendMailAsync(mailOptionsSelf));
 
-				promises.push(transporter.sendMailAsync(mailOptions));
-				promises.push(transporter.sendMailAsync(mailOptionsSelf));
+						Promise.all(promises)
+						.then(function() {
+							// Success
+							res.sendStatus(201);
+						})
+						.catch(function(ex) {
+							// Error
+							console.log("Unable to send emails", ex);
+							res.sendStatus(500);
+						});
+			   		})
+			   		.catch(function(ex) {
+			   			console.log("Unable to add document", ex);
+			   			res.json({error: 'already_exists'});
+			   		})
 
-				Promise.all(promises)
-					.then(function() {
-						// Success
-				    	res.sendStatus(200);
-					})
-					.catch(function(ex) {
-						// Error
-						res.sendStatus(500);
-					});
-		   }
-
-		});
+			})
+			.catch(function(ex) {
+				console.log("Unable to connect", ex);
+				res.sendStatus(500);
+			});
 
 	});
 }

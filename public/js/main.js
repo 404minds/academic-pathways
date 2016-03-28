@@ -135,9 +135,11 @@ form.addEventListener("submit", function(event) {
       dataType: 'json',
       data: $(form).serialize(),
       complete: function(jqXHR, textStatus) {
-        if(jqXHR.status === 200) {
+        if(jqXHR.status === 201) {
           $("#regFormWrapper,#regSuccessWrapper").toggle();
           $("#register").find("h1.heading, h5.text").hide();
+        } else if (jqXHR.status === 200 && jqXHR.responseJSON.error === 'already_exists') {
+          alert("You are already registered.");
         } else {
           alert("We are not able to accept registrations at this moment, please try again later.");
         }
