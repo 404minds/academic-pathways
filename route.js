@@ -1,7 +1,7 @@
 var nodemailer = require('nodemailer');
 var Promise = require("bluebird");
-var constant = require('./constants.js');
 var MongoClient = require('mongodb').MongoClient;
+var constant = require('./constants.js');
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
