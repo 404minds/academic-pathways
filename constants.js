@@ -1,7 +1,7 @@
  module.exports = {
- 	HOST: "smtp.mandrillapp.com",
+ 	HOST: "smtp.mailgun.org",
     SECURE: false,
     PORT: 587,
- 	USER: "niftytushar@gmail.com",
-    PASS: "0-M0dOq0xC0oe6ALRvUZJA"
+ 	USER: "info@academicpathways.in",
+    PASS: "I4UB5mBXcyc4ADI5dx",
  };
