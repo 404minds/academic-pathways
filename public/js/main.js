@@ -58,6 +58,11 @@ window.addEventListener("keydown", function(ev) {
   }
 })
 
+var subscribeModalCloseBtn = document.getElementById('cross-btn');
+subscribeModalCloseBtn.addEventListener("click", function() {
+subscribeModal.style.display = "none";
+});
+
 
 var form = document.getElementById('registration-form');
 var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/; 
@@ -130,9 +135,11 @@ form.addEventListener("submit", function(event) {
       dataType: 'json',
       data: $(form).serialize(),
       complete: function(jqXHR, textStatus) {
-        if(jqXHR.status === 200) {
+        if(jqXHR.status === 201) {
           $("#regFormWrapper,#regSuccessWrapper").toggle();
           $("#register").find("h1.heading, h5.text").hide();
+        } else if (jqXHR.status === 200 && jqXHR.responseJSON.error === 'already_exists') {
+          alert("You are already registered.");
         } else {
           alert("We are not able to accept registrations at this moment, please try again later.");
         }
@@ -189,6 +196,9 @@ sform.addEventListener("submit", function(event) {
       complete: function(jqXHR, textStatus) {
         subscribeModal.style.display = "none";
 
+        // Save cookie
+        docCookies.setItem('subscribe', 1, Infinity);
+
         // Enable submit button
         $("#subscribe-form-submit").prop('disabled', false);
       }
@@ -206,4 +216,10 @@ function reset(box, text ,errorBox) {
     errorBox.style.display = "none";
   },false);
 
+}
+
+
+// Hide modal if cookie is saved
+if(+docCookies.getItem('subscribe')) {
+  subscribeModal.style.display = "none";
 }

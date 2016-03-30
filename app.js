@@ -20,7 +20,7 @@ var route = require('./route')(app);
 
 
 // Initialize app
-var server = app.listen(process.env.PORT || 5000, function() {
+var server = app.listen(process.env.PORT || 5001, function() {
 	var port = server.address().port;
     console.log("Academic Pathways App is now running on port", port);
 });
