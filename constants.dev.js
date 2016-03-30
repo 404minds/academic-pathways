@@ -4,5 +4,5 @@
     PORT: 587,
  	USER: "info@academicpathways.in",
     PASS: "I4UB5mBXcyc4ADI5dx",
-    DB_URL: "mongodb://acdpathways:acdpathways@ds011880.mlab.com:11880/heroku_31z73999"
+    DB_URL: "mongodb://acdpathways:acdpathways@ds025399.mlab.com:25399/heroku_v6k7617g"
  };
