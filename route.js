@@ -19,7 +19,13 @@ Promise.promisifyAll(transporter);
 var route = function(app) {
 
 	app.post('/register', function(req,res) {
-
+		var spcl = null;
+		for(var i = 0; i< req.body.specialization.length; i++) {
+			if(req.body.specialization[i]) {
+				spcl = req.body.specialization[i];
+				break;
+			}
+		}
 		// Connect to db
 		var connect = Promise.promisify(MongoClient.connect);
 		connect(constant.DB_URL)
@@ -57,6 +63,7 @@ var route = function(app) {
 							<strong>Email:</strong> ' + req.body.email + '<br>\
 							<strong>Contact:</strong> ' + req.body.contact + '<br>\
 							<strong>Course:</strong> ' + req.body.course + '<br>\
+							<strong>Specialization:</strong> ' + spcl + '<br>\
 							<strong>Highest Qualification:</strong> ' + req.body.hqual + '<br>\
 							<strong>Experience(yrs):</strong> ' + req.body.exper + '<br>\
 							<strong>Location:</strong> ' + req.body.location + '<br>'

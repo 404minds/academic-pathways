@@ -68,6 +68,20 @@ var form = document.getElementById('registration-form');
 var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/; 
 
 var text = "";
+form.course.addEventListener('change', function() {
+  if(this.value == "M.Tech") {
+    document.getElementById('mba').style.display = "none";
+    document.getElementById('mtech').style.display = "block";
+  }else if(this.value == "MBA") {
+    document.getElementById('mba').style.display = "block";
+    document.getElementById('mtech').style.display = "none";
+  }else {
+    document.getElementById('mba').style.display = "none";
+    document.getElementById('mtech').style.display = "none";
+  }
+
+});
+
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -103,7 +117,7 @@ form.addEventListener("submit", function(event) {
     text = "Select the course Interested";
     reset(form.course, text ,errorBox);
     return false;
-  }  
+  }
 
   /*if(form.hqual.value == "") {
     text = "Enter Your High qualification";
