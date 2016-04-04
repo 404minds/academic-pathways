@@ -800,6 +800,10 @@ address {
     }
 }
 
+#mtech,
+#mba {
+    display: none;
+}
 
 
 @media (max-width: 480px) {
