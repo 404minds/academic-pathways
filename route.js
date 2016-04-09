@@ -9,8 +9,8 @@ var transporter = nodemailer.createTransport({
     secure: constant.SECURE,
     port: constant.PORT,
     auth: {
-        user: constant.USER,
-        pass: constant.PASS
+        user: process.env.MAILGUN_USER,
+        pass: process.env.MAILGUN_PASSWORD
     }
 });
 
@@ -28,7 +28,7 @@ var route = function(app) {
 		}
 		// Connect to db
 		var connect = Promise.promisify(MongoClient.connect);
-		connect(constant.DB_URL)
+		connect(process.env.MONGOLAB_URI)
 			.then(function(db) {
 				var promises = [];
 
@@ -98,7 +98,7 @@ var route = function(app) {
 
 		// Connect to db
 		var connect = Promise.promisify(MongoClient.connect);
-		connect(constant.DB_URL)
+		connect(process.env.MONGOLAB_URI)
 			.then(function(db) {
 				var promises = [];
 
