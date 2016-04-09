@@ -23,4 +23,5 @@ var route = require('./route')(app);
 var server = app.listen(process.env.PORT || 5015, function() {
 	var port = server.address().port;
     console.log("Academic Pathways App is now running on port", port);
+    console.log(ENV['MAILGUN_USER']);
 });
