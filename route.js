@@ -80,7 +80,8 @@ var route = function(app) {
 						.catch(function(ex) {
 							// Error
 							console.log("Unable to send emails", ex);
-							res.sendStatus(500);
+							// res.sendStatus(500);
+							res.sendStatus(201);
 						});
 			   		})
 			   		.catch(function(ex) {
